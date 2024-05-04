@@ -159,6 +159,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-targetLinks.txt
-
 .vscode/
+
+targetLinks.txt
+output.*
+output.csv
+output.html

@@ -5,10 +5,8 @@ To run:
 ```python
 python3 -m pip install playwright==1.35.0
 python3 -m playwright install
-python3 measurements_script.py
+python3 measurements.py
 ```
-
-To generate target links, go to grailed and filter search then paste this in the browser developer console:
 
 ```javascript
 let targetLinks = new Set();
