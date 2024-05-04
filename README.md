@@ -1,12 +1,16 @@
 # Grailscape
-Script that finds Grailed.com listings with specific measurements which can not be filtered by in the search function.
+
+Script that finds Grailed.com listings with specific measurements which can not be filtered by in the search function. Change measurements in 'meas' variable in the measurements.py script
 
 To run:
+
 ```python
 python3 -m pip install playwright==1.35.0
 python3 -m playwright install
 python3 measurements.py
 ```
+
+Before running targetLinks.txt must be generated and placed in the project folder together with measurements.py, go to grailed.com and search for what you want, narrow down with filters and use this script in the browser developer console:
 
 ```javascript
 let targetLinks = new Set();
