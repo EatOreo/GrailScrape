@@ -81,8 +81,12 @@ try:
     with sync_playwright() as p:
         browser = p.firefox.launch(headless=True)
         page = browser.new_page()
+        count = 0
         for url in urls:
-            page.goto(url, wait_until="load")
+            count += 1
+            print(f"{count}/{len(urls)}")
+            
+            page.goto(url)
             try:
                 measurements_string = page.get_by_test_id("ListingPageMeasurements").all_inner_texts()[0]
             except:
