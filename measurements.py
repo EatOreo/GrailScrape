@@ -85,8 +85,14 @@ try:
         for url in urls:
             count += 1
             print(f"{count}/{len(urls)}")
-            
-            page.goto(url)
+            try:
+                page.goto(url)
+            except:
+                print("Timeout error: ", url)
+                page.close()
+                page = browser.new_page()
+                continue
+
             try:
                 measurements_string = page.get_by_test_id("ListingPageMeasurements").all_inner_texts()[0]
             except:
@@ -123,6 +129,12 @@ finally:
     csv_data = ""
     with open('output.csv', 'r') as file:
         csv_data = file.read()
+
+    csv_data = csv_data.strip().split('\n')
+    csv_data = list(set(csv_data))
+    csv_data.sort(key=lambda row: float(row.split(',')[1][1:]))
+
+    csv_data = '\n'.join(csv_data)
 
     template = template.replace("*CSV_DATA*", csv_data)
 

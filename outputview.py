@@ -68,6 +68,12 @@ csv_data = ""
 with open('output.csv', 'r') as file:
     csv_data = file.read()
 
+csv_data = csv_data.strip().split('\n')
+csv_data = list(set(csv_data))
+csv_data.sort(key=lambda row: float(row.split(',')[1][1:]))
+
+csv_data = '\n'.join(csv_data)
+
 template = template.replace("*CSV_DATA*", csv_data)
 
 with open('output.html', 'w', newline='') as file:
