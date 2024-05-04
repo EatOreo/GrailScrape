@@ -165,3 +165,4 @@ targetLinks.txt
 output.*
 output.csv
 output.html
+*.csv
