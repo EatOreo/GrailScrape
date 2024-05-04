@@ -1,8 +1,14 @@
 # Grailscape
+Script that finds Grailed.com listings with specific measurements which can not be filtered by in the search function.
 
+To run:
+```python
 python3 -m pip install playwright==1.35.0
 python3 -m playwright install
 python3 measurements_script.py
+```
+
+To generate target links, go to grailed and filter search then paste this in the browser developer console:
 
 ```javascript
 let targetLinks = new Set();
@@ -24,7 +30,7 @@ observer.observe(document, {childList: true, subtree: true});
 findLinks();
 ```
 
-When scrolled to bottom of searches vvv
+When scrolled to bottom of searches paste this in developer console:
 
 ```javascript
 let data = Array.from(targetLinks).join('\n');
@@ -36,3 +42,5 @@ a.href = url;
 a.download = 'targetLinks.txt';
 a.click();
 ```
+
+Now move the downloaded targetLinks.txt from downloads into the project directory, now you can run the python script
