@@ -2,7 +2,7 @@
 
 python3 -m pip install playwright==1.35.0
 python3 -m playwright install
-python3 measurements_script.py
+python3 measurements.py
 
 ```javascript
 let targetLinks = new Set();
